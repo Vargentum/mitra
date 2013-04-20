@@ -334,8 +334,7 @@ em{font-style: italic;}
 a{
   @include link-colors($linkColor, $hoverLinkColor, $activeLinkColor, $visitedLinkColor, $focusedLinkColor);
   @include single-transition($duration:.5s);
-  &:focus {outline: thin dotted;}
-  &:active,&:hover {outline: none;}
+  &:active,&:hover,&:focus{outline: none;}
   text-decoration: underline;
   &:hover,&:focus{text-decoration: none;}
 }
@@ -467,6 +466,17 @@ body {
 }
 .b-nav{
   @extend .obj-gradient;
+  position: relative;
+  //white line
+  &:before{
+    @extend .pseudo-block;
+    width: 100%;
+    height: 2px;
+    background-color: #f5ebcc;
+    border-bottom: 1px solid #b6c6ad;
+    left: 0;
+    top:7px;
+  }
   .nav__content{
     @extend .jLine;
     @extend .pageWidth;
@@ -478,6 +488,8 @@ body {
     position: relative;
   }
   .nav__unit{
+    position: relative;
+    top:2px;
     &:nth-child(3){margin-right: 30px;}
     &.current{
       .nav__unit__label{
@@ -557,6 +569,7 @@ body {
     font-size: 18px;
     @extend .obj-gradient;
     &:hover,&:focus{@extend .obj-gradient-hover;}
+    &.active{@include singleLink(#fff);}
   }
 }
 /* FOOTER -------------------------------*/

@@ -39,7 +39,7 @@ $(function(){
             if($(this).hasClass('active')){
                 $(this).html('Скрыть дополнительные параметры');
             }else{$(this).html('Показать больше параметров');}
-
+            return false;
         });
     });
 //    lightbox init
